@@ -46,22 +46,36 @@ public class PlayerMovement : MonoBehaviour
         if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(Input.GetAxisRaw("Horizontal")/2, 0f, 0f), 0.2f, whatStopsMovement))
         {
           movePoint.position += new Vector3(Input.GetAxisRaw("Horizontal"), 0f, 0f);
-          hasInput = true;
+          anim.SetBool("moveHoriz", true);
+          anim.SetBool("moveVert", false);
+        }
+        else
+        {
+          anim.SetBool("moveHoriz", false);
         }
       }
-      if (Mathf.Abs(Input.GetAxisRaw("Vertical")) == 1f )
+      else if (Mathf.Abs(Input.GetAxisRaw("Vertical")) == 1f )
       {
         if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, Input.GetAxisRaw("Vertical")/2, 0f), 0.4f, whatStopsMovement))
         {
           movePoint.position += new Vector3(0f, Input.GetAxisRaw("Vertical"), 0f);
-          hasInput = true;
+          anim.SetBool("moveVert", true);
+          anim.SetBool("moveHoriz", false);
+        }
+        else
+        {
+          anim.SetBool("moveVert", false);
         }
       }
-      anim.SetBool("moving", hasInput);
+      else
+      {
+        anim.SetBool("moveHoriz", false);
+        anim.SetBool("moveVert", false);
+      }
+
     } else
     {
-      anim.SetBool("moving", true);
-      hasInput = false;
+      // anim.SetBool("moving", true);
     }
 
 
