@@ -6,5 +6,5 @@ public class Loot : MonoBehaviour
 {
 
   public int value;
-  
+
 }

@@ -45,6 +45,9 @@ public class Enemy : MonoBehaviour
 
   private void UpdateMoveTowardsPoint()
   {
+    // check for colissions!!!
+
+    
     float nearestItem = 0f;
     Vector3 newTargetVector = Vector3.zero;
     GameObject[] loot = GameObject.FindGameObjectsWithTag("Loot");
