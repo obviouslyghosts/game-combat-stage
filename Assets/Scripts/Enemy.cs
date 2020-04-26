@@ -32,7 +32,7 @@ public class Enemy : MonoBehaviour
 
   private bool MoveTimerCheck()
   {
-    if (moveTimer>= moveAlarm)
+    if (moveTimer >= moveAlarm)
     {
       moveTimer = 0;
       return true;

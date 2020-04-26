@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Coin-Spin
+  m_Name: knight_idle
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,16 +20,10 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 4193152814725575622, guid: 9214214c44f3e4b4fa7536d4defa3ede,
+      value: {fileID: -9220510105548760039, guid: 9214214c44f3e4b4fa7536d4defa3ede,
         type: 3}
     - time: 0.125
-      value: {fileID: 872201399375847285, guid: 9214214c44f3e4b4fa7536d4defa3ede,
-        type: 3}
-    - time: 0.25
-      value: {fileID: -5456433289598613073, guid: 9214214c44f3e4b4fa7536d4defa3ede,
-        type: 3}
-    - time: 0.375
-      value: {fileID: 4191440144463734338, guid: 9214214c44f3e4b4fa7536d4defa3ede,
+      value: {fileID: -3537497996137846026, guid: 9214214c44f3e4b4fa7536d4defa3ede,
         type: 3}
     attribute: m_Sprite
     path: 
@@ -50,16 +44,14 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 4193152814725575622, guid: 9214214c44f3e4b4fa7536d4defa3ede, type: 3}
-    - {fileID: 872201399375847285, guid: 9214214c44f3e4b4fa7536d4defa3ede, type: 3}
-    - {fileID: -5456433289598613073, guid: 9214214c44f3e4b4fa7536d4defa3ede, type: 3}
-    - {fileID: 4191440144463734338, guid: 9214214c44f3e4b4fa7536d4defa3ede, type: 3}
+    - {fileID: -9220510105548760039, guid: 9214214c44f3e4b4fa7536d4defa3ede, type: 3}
+    - {fileID: -3537497996137846026, guid: 9214214c44f3e4b4fa7536d4defa3ede, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.5
+    m_StopTime: 0.25
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
