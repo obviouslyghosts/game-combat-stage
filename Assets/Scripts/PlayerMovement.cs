@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-  public float moveSpeed = 5f;
+  public float moveSpeed = 4f;
   public Transform movePoint;
 
   public LayerMask whatStopsMovement;
