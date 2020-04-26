@@ -5,6 +5,12 @@ using UnityEngine;
 public class Loot : MonoBehaviour
 {
 
-  public int value;
+  public int value = 1;
+
+
+  public void PickedUp()
+  {
+    Destroy(gameObject);
+  }
 
 }
