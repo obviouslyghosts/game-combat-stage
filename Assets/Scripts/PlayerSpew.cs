@@ -7,6 +7,7 @@ public class PlayerSpew : MonoBehaviour
   public GameObject[] items;
   public int level;
   public LayerMask bounds; // same as player!!!
+  public PlayerStatus playerStatus;
 
   public void Everywhere()
   {
@@ -28,6 +29,7 @@ public class PlayerSpew : MonoBehaviour
     {
       GameObject item = items[ UnityEngine.Random.Range(0, items.Length) ];
       Instantiate(item, transform.position + pos, Quaternion.identity);
+      playerStatus.Spew(1);
     }
   }
 
