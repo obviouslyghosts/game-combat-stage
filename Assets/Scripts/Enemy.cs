@@ -10,9 +10,10 @@ public class Enemy : MonoBehaviour
   public Transform movePoint;
   public Transform goalPoint;
   public int backpackSize;
-
   public Animator anim;
 
+  public EnemyAttack attackHoriz;
+  public EnemyAttack attackVert;
   private int level = 1;
   private int backpack = 0;
   private float moveTimer = 0;
@@ -33,7 +34,10 @@ public class Enemy : MonoBehaviour
       Debug.Log("Moving Point");
     }
 
-    StepTowardsPoint();
+    if ( AttackCheck() )
+    {
+      StepTowardsPoint();
+    }
   }
 
   private void OnTriggerEnter2D(Collider2D other)
@@ -87,6 +91,21 @@ public class Enemy : MonoBehaviour
     {
       SimpleMove( FindNearest("Player") );
     }
+  }
+
+  private bool AttackCheck()
+  {
+    if (attackHoriz.isAttacking)
+    {
+      anim.SetTrigger("attack-Horiz");
+      return false;
+    }
+    if (attackVert.isAttacking)
+    {
+      anim.SetTrigger("attack-Vert");
+      return false;
+    }
+    return true;
   }
 
   private Vector3 FindNearest(string tag)

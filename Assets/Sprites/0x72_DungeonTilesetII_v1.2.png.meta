@@ -163,7 +163,7 @@ TextureImporter:
     second: 0x72_DungeonTilesetII_v1.2_52
   - first:
       213: 8601730010273031560
-    second: 0x72_DungeonTilesetII_v1.2_53
+    second: sword-1
   - first:
       213: -7249871673279433844
     second: 0x72_DungeonTilesetII_v1.2_54
@@ -1576,7 +1576,7 @@ TextureImporter:
     second: 0x72_DungeonTilesetII_v1.2_52
   - first:
       213: -6515704271152694996
-    second: 0x72_DungeonTilesetII_v1.2_53
+    second: sword-1
   - first:
       213: -1907871062336532430
     second: 0x72_DungeonTilesetII_v1.2_54
@@ -2702,27 +2702,6 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0x72_DungeonTilesetII_v1.2_26
-      rect:
-        serializedVersion: 2
-        x: 336
-        y: 480
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cd6f605560c7506f0800000000000000
-      internalID: -719032198857558308
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: 0x72_DungeonTilesetII_v1.2_27
       rect:
         serializedVersion: 2
@@ -3269,13 +3248,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0x72_DungeonTilesetII_v1.2_53
+      name: sword-1
       rect:
         serializedVersion: 2
-        x: 336
-        y: 464
-        width: 16
-        height: 16
+        x: 339
+        y: 465
+        width: 10
+        height: 21
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
