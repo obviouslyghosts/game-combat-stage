@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
   public float brainSpeed = 1f;
   public float moveSpeed = 4f;
   public float moveAlarm = 0.6f;
+  public float attackAlarm = 0.6f;
   public Transform movePoint;
   public Transform goalPoint;
   public int backpackSize;
@@ -17,6 +18,7 @@ public class Enemy : MonoBehaviour
   private int level = 1;
   private int backpack = 0;
   private float moveTimer = 0;
+  private float attackTimer = 0;
 
   void Start()
   {
@@ -28,16 +30,16 @@ public class Enemy : MonoBehaviour
 
   void Update()
   {
-    if (MoveTimerCheck())
-    {
-      UpdateMoveTowardsPoint();
-      Debug.Log("Moving Point");
-    }
-
     if ( AttackCheck() )
     {
+      if (MoveTimerCheck())
+      {
+        UpdateMoveTowardsPoint();
+        Debug.Log("Moving Point");
+      }
       StepTowardsPoint();
     }
+
   }
 
   private void OnTriggerEnter2D(Collider2D other)
@@ -97,15 +99,34 @@ public class Enemy : MonoBehaviour
   {
     if (attackHoriz.isAttacking)
     {
-      anim.SetTrigger("attack-Horiz");
+      if (AttackTimer() )
+      {
+        anim.SetTrigger("attack-Horiz");
+        GameObject.FindWithTag("Player").GetComponent<PlayerStatus>().Attacked(1);
+      }
       return false;
     }
     if (attackVert.isAttacking)
     {
-      anim.SetTrigger("attack-Vert");
+      if (AttackTimer())
+      {
+        anim.SetTrigger("attack-Vert");
+        GameObject.FindWithTag("Player").GetComponent<PlayerStatus>().Attacked(1);
+      }
       return false;
     }
     return true;
+  }
+
+  private bool AttackTimer()
+  {
+    if (attackTimer >= attackAlarm)
+    {
+      attackTimer = 0;
+      return true;
+    }
+    attackTimer+= Time.deltaTime;
+    return false;
   }
 
   private Vector3 FindNearest(string tag)

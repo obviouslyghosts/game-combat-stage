@@ -220,7 +220,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.7, y: 2}
+  m_Size: {x: 0.7, y: 1.25}
   m_EdgeRadius: 0
 --- !u!114 &9197591931689110122
 MonoBehaviour:
@@ -305,7 +305,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2, y: 0.7}
+  m_Size: {x: 1.25, y: 0.7}
   m_EdgeRadius: 0
 --- !u!114 &1754319361123044020
 MonoBehaviour:
@@ -468,10 +468,10 @@ MonoBehaviour:
   brainSpeed: 1
   moveSpeed: 8
   moveAlarm: 0.2
+  attackAlarm: 0.6
   movePoint: {fileID: 8437921089798386124}
   goalPoint: {fileID: 3613454192961104791}
   backpackSize: 0
-  isAttacking: 0
   anim: {fileID: 3609291672847197461}
   attackHoriz: {fileID: 1754319361123044020}
   attackVert: {fileID: 9197591931689110122}
