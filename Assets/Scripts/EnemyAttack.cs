@@ -21,7 +21,7 @@ public class EnemyAttack : MonoBehaviour
     {
       Debug.Log("not attacking!");
       isAttacking = false;
-      
+
     }
   }
 
