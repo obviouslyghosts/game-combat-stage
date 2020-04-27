@@ -9,16 +9,20 @@ public class EnemySpawner : MonoBehaviour
   private float spawnTimer= 0f;
   public GameObject[] spawnPoints;
   public GameObject[] enemies;
+  public int maxEnemies = 1;
+  private int spawnedEnemies = 0;
 
   void Update()
   {
-    if ( SpawnTimerCheck() )
+    if ( SpawnTimerCheck() && (spawnedEnemies < maxEnemies))
     {
 
       Vector3 spawnPos = spawnPoints[ UnityEngine.Random.Range(0, spawnPoints.Length) ].transform.position;
       GameObject enemy = enemies[ UnityEngine.Random.Range(0, enemies.Length) ];
 
       Instantiate(enemy, spawnPos, Quaternion.identity);
+
+      spawnedEnemies++;
 
     }
 

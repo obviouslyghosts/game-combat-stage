@@ -9,10 +9,10 @@ public class PlayerMovement : MonoBehaviour
 
   public LayerMask whatStopsMovement;
   public Animator anim;
-
+  public PlayerSpew spew;
   private float attackWait = 0.4f;
   private float attackTimer= 0.4f;
-  private bool hasInput = false;
+  // private bool hasInput = false;
 
   // Start is called before the first frame update
   void Start()
@@ -34,6 +34,7 @@ public class PlayerMovement : MonoBehaviour
         {
           anim.SetTrigger("attack");
           attackTimer = 0f;
+          spew.Everywhere();
         }
       }
       else
