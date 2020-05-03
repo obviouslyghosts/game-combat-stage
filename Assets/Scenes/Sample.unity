@@ -3865,6 +3865,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bba6be0089ae2e49a522add3ebba67d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UIhealth: {fileID: 1846898860}
+  UIwealth: {fileID: 1499449140}
   health: 100
   wealth: 100
 --- !u!1 &2118594701
