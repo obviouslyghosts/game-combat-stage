@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+  public AudioManager audioManager;
   public float brainSpeed = 1f;
   public float moveSpeed = 4f;
   public float moveAlarm = 0.6f;
@@ -26,6 +27,7 @@ public class Enemy : MonoBehaviour
     goalPoint.parent = null;
     moveAlarm = UnityEngine.Random.Range(0.2f,0.7f);
     backpackSize = UnityEngine.Random.Range(5,10);
+    audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
   }
 
   void Update()
@@ -102,6 +104,7 @@ public class Enemy : MonoBehaviour
       if (AttackTimer() )
       {
         anim.SetTrigger("attack-Horiz");
+        audioManager.Play("KnightAttack");
         GameObject.FindWithTag("Player").GetComponent<PlayerStatus>().Attacked(1);
       }
       return false;
@@ -111,6 +114,7 @@ public class Enemy : MonoBehaviour
       if (AttackTimer())
       {
         anim.SetTrigger("attack-Vert");
+        audioManager.Play("KnightAttack");
         GameObject.FindWithTag("Player").GetComponent<PlayerStatus>().Attacked(1);
       }
       return false;
@@ -164,6 +168,7 @@ public class Enemy : MonoBehaviour
       transform.localScale = new Vector3( (float)_x,1f,1f);
       anim.SetBool("moveHoriz", true);
       anim.SetBool("moveVert", false);
+      audioManager.Play("KnightMove");
     }
     if (Mathf.Abs(transform.position.y - target.y) >= 0.5f)
     {
@@ -171,6 +176,7 @@ public class Enemy : MonoBehaviour
       _y = transform.position.y > target.y ? -1 : 1;
       anim.SetBool("moveVert", true);
       anim.SetBool("moveHoriz", false);
+      audioManager.Play("KnightMove");
     }
 
     movePoint.position += new Vector3((float)_x,(float)_y,0f);

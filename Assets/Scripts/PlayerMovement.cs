@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
   public float moveSpeed = 4f;
   public Transform movePoint;
-
+  public AudioManager audioManager;
   public LayerMask whatStopsMovement;
   public Animator anim;
   public PlayerSpew spew;
@@ -33,6 +33,7 @@ public class PlayerMovement : MonoBehaviour
         if (Mathf.Abs(Input.GetAxisRaw("Jump")) == 1f)
         {
           anim.SetTrigger("attack");
+          audioManager.Play("PlayerSpew");
           attackTimer = 0f;
           spew.Everywhere();
         }
@@ -49,6 +50,7 @@ public class PlayerMovement : MonoBehaviour
           movePoint.position += new Vector3(Input.GetAxisRaw("Horizontal"), 0f, 0f);
           anim.SetBool("moveHoriz", true);
           anim.SetBool("moveVert", false);
+          audioManager.Play("PlayerMove");
         }
         else
         {
@@ -62,6 +64,7 @@ public class PlayerMovement : MonoBehaviour
           movePoint.position += new Vector3(0f, Input.GetAxisRaw("Vertical"), 0f);
           anim.SetBool("moveVert", true);
           anim.SetBool("moveHoriz", false);
+          audioManager.Play("PlayerMove");
         }
         else
         {
