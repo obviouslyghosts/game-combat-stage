@@ -6,9 +6,7 @@ public class NOTES : MonoBehaviour
 {
 
   // NEXT NEXT NEXT NEXT
-  // music
-  // UI
-  // sfx
+  // screens
   // level up progress
   // title menu
   // More enemies
@@ -18,5 +16,6 @@ public class NOTES : MonoBehaviour
   // FIX FIX FIX FIX
   // fix player 'infinite slide'
   // enemy collision (self, and moving)
+  // enemy attack timer!
 
 }
