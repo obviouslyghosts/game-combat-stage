@@ -1006,7 +1006,7 @@ TextureImporter:
     second: 0x72_DungeonTilesetII_v1.2_333
   - first:
       213: 8018630394102371302
-    second: 0x72_DungeonTilesetII_v1.2_334
+    second: Heart
   - first:
       213: 4969545857191191293
     second: 0x72_DungeonTilesetII_v1.2_335
@@ -8687,7 +8687,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0x72_DungeonTilesetII_v1.2_334
+      name: Heart
       rect:
         serializedVersion: 2
         x: 288
