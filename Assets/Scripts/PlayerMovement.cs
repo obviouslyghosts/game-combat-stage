@@ -18,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
   void Start()
   {
     movePoint.parent = null;
+    audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
   }
 
   // Update is called once per frame

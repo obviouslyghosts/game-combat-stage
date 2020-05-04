@@ -70,7 +70,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 4193152814725575622, guid: 9214214c44f3e4b4fa7536d4defa3ede,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -115,7 +115,7 @@ GameObject:
   - component: {fileID: 7700868012930100574}
   - component: {fileID: 1944487919225927003}
   m_Layer: 0
-  m_Name: Coin
+  m_Name: Coin-2
   m_TagString: Loot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
