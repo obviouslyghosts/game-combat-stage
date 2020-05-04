@@ -8,6 +8,7 @@ public class NOTES : MonoBehaviour
   // NEXT NEXT NEXT NEXT
   // level up progress
   // title menu art
+  // spew physics!
   // More enemies
   // more treasure
   // UI SFX
@@ -17,6 +18,5 @@ public class NOTES : MonoBehaviour
   // fix player 'infinite slide'
   // enemy collision (self, and moving)
   // enemy attack timer!
-  // player colission on bottom of screen?
 
 }
