@@ -9,7 +9,7 @@
 /[Bb]uilds/
 /[Ll]ogs/
 /[Mm]emoryCaptures/
-/[Aa]rt/
+#/[Aa]rt/
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta
@@ -45,8 +45,8 @@ ExportedObj/
 *.VC.db
 
 # Exclude any PSD/AI source
-*.psd
-*.ai
+#*.psd
+#*.ai
 
 # Unity3D generated meta files
 *.pidb.meta
