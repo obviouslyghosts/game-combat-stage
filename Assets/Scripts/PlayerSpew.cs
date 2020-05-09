@@ -20,7 +20,7 @@ public class PlayerSpew : MonoBehaviour
 
   private bool IsInBounds(Vector3 pos)
   {
-    return !Physics2D.OverlapCircle(transform.position + pos, 0.2f, bounds);
+    return !Physics2D.OverlapCircle(transform.position + pos / 2, 0.2f, bounds);
   }
 
   private void SpawnItem(Vector3 pos)

@@ -19,4 +19,19 @@ public class NOTES : MonoBehaviour
   // enemy collision (self, and moving)
   // enemy attack timer!
 
+  // GAME LOOP
+  // pickup your own!
+  //
+  // enemy comes
+  // spew equip
+  // enemy hits weight limit
+  // enemy drops +1 item (tag as loot 2)
+  // collect shit before enemys grab it!
+  // enemies go away
+  //
+  // it's magic - they just manifest
+  // wheres the challenge?
+  // mana bar? slowly recharches, fixed spend
+
+
 }

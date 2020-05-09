@@ -23,4 +23,10 @@ public class PlayerStatus : MonoBehaviour
     UIwealth.text = wealth.ToString();
   }
 
+  public void Pickup(int value)
+  {
+    wealth += value;
+    UIwealth.text = wealth.ToString();
+  }
+
 }

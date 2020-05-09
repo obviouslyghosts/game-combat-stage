@@ -73,7 +73,7 @@ TextureImporter:
     second: 0x72_DungeonTilesetII_v1.2_22
   - first:
       213: 6134970149673287009
-    second: 0x72_DungeonTilesetII_v1.2_23
+    second: Dagger
   - first:
       213: -5944211549985450333
     second: 0x72_DungeonTilesetII_v1.2_24
@@ -511,7 +511,7 @@ TextureImporter:
     second: 0x72_DungeonTilesetII_v1.2_168
   - first:
       213: 3431950311168839154
-    second: 0x72_DungeonTilesetII_v1.2_169
+    second: Knife-1
   - first:
       213: -3831199879461734873
     second: 0x72_DungeonTilesetII_v1.2_170
@@ -1486,7 +1486,7 @@ TextureImporter:
     second: 0x72_DungeonTilesetII_v1.2_22
   - first:
       213: 6197532522668462571
-    second: 0x72_DungeonTilesetII_v1.2_23
+    second: Dagger
   - first:
       213: -6649973366978171648
     second: 0x72_DungeonTilesetII_v1.2_24
@@ -1918,7 +1918,7 @@ TextureImporter:
     second: 0x72_DungeonTilesetII_v1.2_168
   - first:
       213: 8760990711988762987
-    second: 0x72_DungeonTilesetII_v1.2_169
+    second: Knife-1
   - first:
       213: -3317492770671196376
     second: 0x72_DungeonTilesetII_v1.2_170
@@ -2639,7 +2639,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0x72_DungeonTilesetII_v1.2_23
+      name: Dagger
       rect:
         serializedVersion: 2
         x: 288
@@ -5222,13 +5222,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0x72_DungeonTilesetII_v1.2_169
+      name: Knife-1
       rect:
         serializedVersion: 2
         x: 288
-        y: 384
+        y: 369
         width: 16
-        height: 16
+        height: 22
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -5805,27 +5805,6 @@ TextureImporter:
       bones: []
       spriteID: 49b0a6d86d741b7a0800000000000000
       internalID: -6363225811676689516
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 0x72_DungeonTilesetII_v1.2_197
-      rect:
-        serializedVersion: 2
-        x: 288
-        y: 368
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 778715584ae5b8060800000000000000
-      internalID: 6956758110108219511
       vertices: []
       indices: 
       edges: []
