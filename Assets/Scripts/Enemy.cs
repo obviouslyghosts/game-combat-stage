@@ -78,6 +78,7 @@ public class Enemy : MonoBehaviour
       Vector3 point = FindNearest("SpawnPoint");
       if (Vector3.Distance(transform.position, point) <= 0.5f)
       {
+        GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>().LeftRoom();
         Destroy( gameObject );
       }
       else

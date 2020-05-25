@@ -9,4 +9,10 @@ public class Scenes : MonoBehaviour
     SceneManager.LoadScene("Sample");
   }
 
+  public void Tally()
+  {
+    SceneManager.LoadScene("Tally");
+  }
+
+
 }

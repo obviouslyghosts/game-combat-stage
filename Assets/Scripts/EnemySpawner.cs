@@ -5,30 +5,33 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
 
+  public bool isActive = true;
   public float spawnAlarm = 1f;
   private float spawnTimer= 0f;
   public GameObject[] spawnPoints;
   public GameObject[] enemies;
-  public int maxEnemies = 1;
-  private int spawnedEnemies = 0;
+  public int enemiesMax = 5;
+  private int enemiesSpawned = 0;
+  private int enemiesLeft = 0;
+
 
   void Update()
   {
-    if ( SpawnTimerCheck() && (spawnedEnemies < maxEnemies))
+    if (isActive)
     {
-
-      Vector3 spawnPos = spawnPoints[ UnityEngine.Random.Range(0, spawnPoints.Length) ].transform.position;
-      GameObject enemy = enemies[ UnityEngine.Random.Range(0, enemies.Length) ];
-
-      Instantiate(enemy, spawnPos, Quaternion.identity);
-
-      spawnedEnemies++;
-
+      if ( SpawnTimerCheck() && (enemiesSpawned < enemiesMax))
+      {
+        Vector3 spawnPos = spawnPoints[ UnityEngine.Random.Range(0, spawnPoints.Length) ].transform.position;
+        GameObject enemy = enemies[ UnityEngine.Random.Range(0, enemies.Length) ];
+        Instantiate(enemy, spawnPos, Quaternion.identity);
+        enemiesSpawned++;
+      }
+      if (enemiesLeft >= enemiesMax)
+      {
+        GameObject.Find("GameState").GetComponent<GameStateController>().WaveEnded();
+      }
     }
-
-
   }
-
 
   private bool SpawnTimerCheck()
   {
@@ -39,5 +42,20 @@ public class EnemySpawner : MonoBehaviour
     }
     spawnTimer+= Time.deltaTime;
     return false;
+  }
+
+  public void NewWave()
+  {
+
+  }
+
+  public void LeftRoom()
+  {
+    enemiesLeft++;
+  }
+
+  public void SetScriptActive(bool v)
+  {
+    isActive = v;
   }
 }
