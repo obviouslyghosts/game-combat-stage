@@ -5,6 +5,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
   public AudioManager audioManager;
+  public GameController gameController;
   public float brainSpeed = 1f;
   public float moveSpeed = 4f;
   public float moveAlarm = 0.6f;
@@ -28,6 +29,8 @@ public class Enemy : MonoBehaviour
     moveAlarm = UnityEngine.Random.Range(0.2f,0.7f);
     backpackSize = UnityEngine.Random.Range(5,10);
     audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+    gameController = GameObject.Find("GameController").GetComponent<GameController>();
+
   }
 
   void Update()
@@ -106,7 +109,8 @@ public class Enemy : MonoBehaviour
       {
         anim.SetTrigger("attack-Horiz");
         audioManager.Play("KnightAttack");
-        GameObject.FindWithTag("Player").GetComponent<PlayerStatus>().Attacked(1);
+        gameController.ApplyDamange(1);
+        // GameObject.FindWithTag("Player").GetComponent<PlayerStatus>().Attacked(1);
       }
       return false;
     }
@@ -116,7 +120,8 @@ public class Enemy : MonoBehaviour
       {
         anim.SetTrigger("attack-Vert");
         audioManager.Play("KnightAttack");
-        GameObject.FindWithTag("Player").GetComponent<PlayerStatus>().Attacked(1);
+        gameController.ApplyDamange(1);
+        // GameObject.FindWithTag("Player").GetComponent<PlayerStatus>().Attacked(1);
       }
       return false;
     }

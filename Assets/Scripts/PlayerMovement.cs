@@ -11,7 +11,8 @@ public class PlayerMovement : MonoBehaviour
   public LayerMask whatStopsMovement;
   public Animator anim;
   public PlayerSpew spew;
-  public PlayerStatus status;
+  public GameController gameController;
+  // public PlayerStatus status;
   public float attackWait = 0.2f;
   private float attackTimer; //= attackWait;
   // private bool hasInput = false;
@@ -22,7 +23,8 @@ public class PlayerMovement : MonoBehaviour
     movePoint.parent = null;
     attackTimer = attackWait;
     audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
-    status = gameObject.GetComponent<PlayerStatus>();
+    gameController = GameObject.Find("GameController").GetComponent<GameController>();
+    // status = gameObject.GetComponent<PlayerStatus>();
   }
 
   // Update is called once per frame
@@ -108,7 +110,8 @@ public class PlayerMovement : MonoBehaviour
     {
       Debug.Log("pickup loot!!!");
       Loot theLoot = other.GetComponent(typeof(Loot)) as Loot;
-      status.Pickup(theLoot.value);
+      gameController.ApplyPickup(theLoot.value);
+      // status.Pickup(theLoot.value);
       theLoot.PickedUp();
     }
   }

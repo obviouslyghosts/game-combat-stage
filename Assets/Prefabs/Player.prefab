@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 7771632571064487924}
   - component: {fileID: 7771632571064487914}
   - component: {fileID: 7771632571064487915}
-  - component: {fileID: 7771632571064487913}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -80,7 +79,7 @@ MonoBehaviour:
   bounds:
     serializedVersion: 2
     m_Bits: 256
-  playerStatus: {fileID: 7771632571064487913}
+  playerStatus: {fileID: 0}
 --- !u!61 &7771632571064487914
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -128,22 +127,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &7771632571064487913
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7771632571064487927}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7bba6be0089ae2e49a522add3ebba67d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  UIhealth: {fileID: 0}
-  UIwealth: {fileID: 0}
-  health: 100
-  wealth: 100
 --- !u!1 &7771632571173825233
 GameObject:
   m_ObjectHideFlags: 0

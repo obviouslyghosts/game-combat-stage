@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-
+  public GameController gameController;
   public bool isActive = true;
   public float spawnAlarm = 1f;
   private float spawnTimer= 0f;
@@ -13,6 +13,11 @@ public class EnemySpawner : MonoBehaviour
   public int enemiesMax = 5;
   private int enemiesSpawned = 0;
   private int enemiesLeft = 0;
+
+  private void Start()
+  {
+    gameController = GameObject.Find("GameController").GetComponent<GameController>();
+  }
 
 
   void Update()
@@ -28,7 +33,8 @@ public class EnemySpawner : MonoBehaviour
       }
       if (enemiesLeft >= enemiesMax)
       {
-        GameObject.Find("GameState").GetComponent<GameStateController>().WaveEnded();
+        gameController.WaveEnded();
+        // GameObject.Find("GameState").GetComponent<GameStateController>().WaveEnded();
       }
     }
   }
