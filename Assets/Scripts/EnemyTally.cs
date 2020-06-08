@@ -59,9 +59,18 @@ public class EnemyTally : MonoBehaviour
     if ( atDestination && pointNumber >= allPoints.Length )
     {
       // GameObject.Find( "TallySpawner" ).GetComponent<TallySpawner>().AddWealth( holdingValue );
+      Destroy( movePoint.gameObject );
       Destroy( gameObject );
     }
+  }
 
+  private void OnTriggerEnter2D(Collider2D other)
+  {
+    Debug.Log("Triggered");
+    if (other.gameObject.tag =="Shop")
+    {
+      Destroy( gameObject.transform.Find( "Loot" ).gameObject );
+    }
   }
 
   private void MoveTowardsPointOfInterest()

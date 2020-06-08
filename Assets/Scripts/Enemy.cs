@@ -84,6 +84,8 @@ public class Enemy : MonoBehaviour
       {
         GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>().LeftRoom();
         gameController.LeftRoom( type );
+        Destroy( goalPoint.gameObject );
+        Destroy( movePoint.gameObject );
         Destroy( gameObject );
       }
       else
