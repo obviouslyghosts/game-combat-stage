@@ -14,6 +14,7 @@ public class Enemy : MonoBehaviour
   public Transform goalPoint;
   public int backpackSize;
   public Animator anim;
+  public string type = "knight";
 
   public EnemyAttack attackHoriz;
   public EnemyAttack attackVert;
@@ -82,6 +83,7 @@ public class Enemy : MonoBehaviour
       if (Vector3.Distance(transform.position, point) <= 0.5f)
       {
         GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>().LeftRoom();
+        gameController.LeftRoom( type );
         Destroy( gameObject );
       }
       else

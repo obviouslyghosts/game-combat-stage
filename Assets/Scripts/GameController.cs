@@ -8,6 +8,7 @@ public class GameController : MonoBehaviour
 
   public static GameController instance;
   private UIUpdater ui;
+  public List<string> enemyList = new List<string>();
 
   public int health;
   public int wealth;
@@ -41,6 +42,21 @@ public class GameController : MonoBehaviour
   {
     wealth += value;
     UIUpdate();
+  }
+
+  public void LeftRoom( string type )
+  {
+    enemyList.Add( type );
+  }
+
+  public List<string> GetTallyEnemies()
+  {
+    return enemyList;
+  }
+
+  public void ClearTallyEnemies()
+  {
+    enemyList.Clear();
   }
 
   public void StartWave()

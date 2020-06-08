@@ -424,14 +424,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8437921089747391357}
-  - component: {fileID: 2161829366811642008}
-  - component: {fileID: 6411269352187006403}
-  - component: {fileID: 7166713856051329967}
-  - component: {fileID: 139363840704221719}
+  - component: {fileID: 5821231936279179440}
+  - component: {fileID: 2904626004341241850}
   - component: {fileID: -1961451194482272317}
   - component: {fileID: -4982401372004879319}
   m_Layer: 0
-  m_Name: Knight 1
+  m_Name: Knight-Tally
   m_TagString: Enemies
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -456,7 +454,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2161829366811642008
+--- !u!114 &5821231936279179440
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -465,32 +463,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 8437921089747391355}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b410ca0fea83ff469c9d1ad9fd89b32, type: 3}
+  m_Script: {fileID: 11500000, guid: 0551da5a1b6c65e47a8fed751d20a4d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movement: {fileID: 6411269352187006403}
-  backpack: {fileID: 7166713856051329967}
-  anim: {fileID: 139363840704221719}
---- !u!114 &6411269352187006403
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8437921089747391355}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb6e43e5ee3f69e4d9d6141b24e8c46e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  alarm: 0.8
-  distanceThreshold: 0.01
+  type: knight
   moveSpeed: 8
-  hasStaticDestination: 1
-  mainBrain: {fileID: 2161829366811642008}
+  spawnInterval: 0.4
+  waitAtShop: 2
   movePoint: {fileID: 8437921089798386124}
-  goalPoint: {fileID: 3613454192961104791}
---- !u!114 &7166713856051329967
+  allPoints: []
+  distanceThreshold: 0.01
+--- !u!114 &2904626004341241850
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -499,22 +482,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 8437921089747391355}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f684740c01a44ee41b0db143c84e52bf, type: 3}
+  m_Script: {fileID: 11500000, guid: 11b96772b3ecfbd4eaa147881005aa46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &139363840704221719
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8437921089747391355}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0375b0eeb94b1c54f9e949bece2a5922, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  anim: {fileID: 3609291672847197461}
 --- !u!61 &-1961451194482272317
 BoxCollider2D:
   m_ObjectHideFlags: 0
