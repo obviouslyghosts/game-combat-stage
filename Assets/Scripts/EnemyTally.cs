@@ -54,6 +54,11 @@ public class EnemyTally : MonoBehaviour
       atDestination = IsAtLoactionCheck( movePoint.position );
     }
 
+    if ( atDestination && pointNumber >= allPoints.Length )
+    {
+      Destroy( gameObject );
+    }
+
   }
 
   private void MoveTowardsPointOfInterest()
