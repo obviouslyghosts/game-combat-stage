@@ -6,12 +6,12 @@ public class NOTES : MonoBehaviour
 {
 
   // NEXT NEXT NEXT NEXT
-  // enemy tally
+  // smoother player movement
   // level up progress
-  // title menu art
+  // more treasure
   // spew physics!
   // More enemies
-  // more treasure
+  // title menu art
   // UI SFX
   // Story
 
