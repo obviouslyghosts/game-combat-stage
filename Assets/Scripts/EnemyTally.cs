@@ -41,6 +41,7 @@ public class EnemyTally : MonoBehaviour
       {
         timer.Init( alarm: waitAtShop );
         movePoint.position = allPoints[ pointNumber ].transform.position;
+        FaceMeTowardsGoal( movePoint.position );
         pointNumber ++;
         atDestination = IsAtLoactionCheck( movePoint.position );
       }
@@ -64,7 +65,12 @@ public class EnemyTally : MonoBehaviour
   private void MoveTowardsPointOfInterest()
   {
     transform.position = Vector3.MoveTowards( transform.position, movePoint.position, moveSpeed * Time.deltaTime );
+  }
 
+  private void FaceMeTowardsGoal( Vector3 target )
+  {
+    int _x = transform.position.x > target.x ? -1 : 1;
+    transform.localScale = new Vector3( (float)_x,1f,1f);
   }
 
 

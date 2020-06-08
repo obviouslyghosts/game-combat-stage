@@ -468,7 +468,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: knight
   moveSpeed: 8
-  spawnInterval: 0.4
+  spawnInterval: 0
   waitAtShop: 2
   movePoint: {fileID: 8437921089798386124}
   allPoints: []
