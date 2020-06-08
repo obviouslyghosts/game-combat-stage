@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyTally : MonoBehaviour
 {
   public string type = "knight";
+  public int holdingValue = 5;
   public float moveSpeed = 4f;
   public float spawnInterval = 0.4f;
   public float waitAtShop = 1f;
@@ -57,6 +58,7 @@ public class EnemyTally : MonoBehaviour
 
     if ( atDestination && pointNumber >= allPoints.Length )
     {
+      // GameObject.Find( "TallySpawner" ).GetComponent<TallySpawner>().AddWealth( holdingValue );
       Destroy( gameObject );
     }
 

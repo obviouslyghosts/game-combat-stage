@@ -28,7 +28,7 @@ public class Enemy : MonoBehaviour
     movePoint.parent = null;
     goalPoint.parent = null;
     moveAlarm = UnityEngine.Random.Range(0.2f,0.7f);
-    backpackSize = UnityEngine.Random.Range(5,10);
+    backpackSize = UnityEngine.Random.Range(1,3);
     audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
     gameController = GameObject.Find("GameController").GetComponent<GameController>();
 

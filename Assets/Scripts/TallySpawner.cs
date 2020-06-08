@@ -7,6 +7,8 @@ public class TallySpawner : MonoBehaviour
   public GameController gameController;
   private List<string> enemyList = new List<string>();
 
+  private int addedWealth = 0;
+
   // public bool isActive = true;
   private Timer timer;
   public float spawnInterval = 0.4f;
@@ -16,6 +18,25 @@ public class TallySpawner : MonoBehaviour
   public int enemiesMax = 5;
   private int enemiesSpawned = 0;
   private int enemiesLeft = 0;
+
+  public void AddWealth( int w )
+  {
+    addedWealth += w;
+  }
+
+  public int GetAddedWealth()
+  {
+    if ( enemyList.Count > 0 )
+    {
+      foreach ( string s in enemyList )
+      {
+        GameObject enemy = GetEnemy( s );
+        AddWealth( enemy.GetComponent<EnemyTally>().holdingValue );
+      }
+
+    }
+    return addedWealth;
+  }
 
   private void Start()
   {
@@ -35,7 +56,7 @@ public class TallySpawner : MonoBehaviour
   }
 
 
-  void Update()
+  private void Update()
   {
     if ( timer.IsTriggered()  && enemyList.Count > 0)
     {
@@ -44,10 +65,10 @@ public class TallySpawner : MonoBehaviour
       Debug.Log("spawning " + name);
       Vector3 spawnPos = this.gameObject.transform.position;
       GameObject enemy = GetEnemy( name );
+      AddWealth( enemy.GetComponent<EnemyTally>().holdingValue );
       Instantiate(enemy, spawnPos, Quaternion.identity);
       timer.Reset();
     }
-
   }
 
   private GameObject GetEnemy ( string name )

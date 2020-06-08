@@ -49,6 +49,11 @@ public class GameController : MonoBehaviour
     enemyList.Add( type );
   }
 
+  public void AddTallyWealth( int w )
+  {
+    wealth += w;
+  }
+
   public List<string> GetTallyEnemies()
   {
     return enemyList;
