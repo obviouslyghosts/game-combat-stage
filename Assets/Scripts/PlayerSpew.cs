@@ -8,6 +8,7 @@ public class PlayerSpew : MonoBehaviour
   public int level;
   public LayerMask bounds; // same as player!!!
   public GameController gameController;
+  public GameObject burstEffect;
   // public PlayerStatus playerStatus;
 
   private void Start()
@@ -29,12 +30,13 @@ public class PlayerSpew : MonoBehaviour
     return !Physics2D.OverlapCircle(transform.position + pos / 2, 0.2f, bounds);
   }
 
-  private void SpawnItem(Vector3 pos)
+  private void SpawnItem( Vector3 pos )
   {
-    if (IsInBounds(pos))
+    if ( IsInBounds( pos ) )
     {
       GameObject item = items[ UnityEngine.Random.Range(0, items.Length) ];
       Instantiate(item, transform.position + pos, Quaternion.identity);
+      Instantiate(burstEffect, transform.position + pos, Quaternion.identity);
       gameController.ApplySpew(1);
       // playerStatus.Spew(1);
     }

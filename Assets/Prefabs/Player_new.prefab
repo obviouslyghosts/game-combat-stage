@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7771632571064487914}
   - component: {fileID: 7771632571064487915}
   m_Layer: 0
-  m_Name: Player
+  m_Name: Player_new
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -57,7 +57,7 @@ MonoBehaviour:
     m_Bits: 256
   anim: {fileID: 7771632571173825239}
   spew: {fileID: 7771632571064487924}
-  status: {fileID: 0}
+  gameController: {fileID: 0}
   attackWait: 0.2
 --- !u!114 &7771632571064487924
 MonoBehaviour:
@@ -79,7 +79,9 @@ MonoBehaviour:
   bounds:
     serializedVersion: 2
     m_Bits: 256
-  playerStatus: {fileID: 0}
+  gameController: {fileID: 0}
+  burstEffect: {fileID: 5515515755045613872, guid: 14b652c3ee736cb4f84044adc36dd060,
+    type: 3}
 --- !u!61 &7771632571064487914
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -153,7 +155,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7771632571173825233}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.08, z: 0}
+  m_LocalPosition: {x: 0, y: 0.15, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7771632571064487925}
@@ -197,8 +199,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
-  m_Sprite: {fileID: -904176948917013313, guid: 9214214c44f3e4b4fa7536d4defa3ede,
+  m_SortingOrder: 5
+  m_Sprite: {fileID: 8793639957104055765, guid: c048373712f08fe458af0054c94f3ff6,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
