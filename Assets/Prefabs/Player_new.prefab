@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7771632571064487925}
-  - component: {fileID: 7771632571064487926}
+  - component: {fileID: 8257407530757863420}
   - component: {fileID: 7771632571064487924}
   - component: {fileID: 7771632571064487914}
   - component: {fileID: 7771632571064487915}
@@ -36,7 +36,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7771632571064487926
+--- !u!114 &8257407530757863420
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -45,20 +45,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 7771632571064487927}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b78f32e76c62e649aeaa76ca309bb5e, type: 3}
+  m_Script: {fileID: 11500000, guid: c901fa642d7dc574db514723d981ba4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   isActive: 1
   moveSpeed: 8
   movePoint: {fileID: 7771632571875084479}
   audioManager: {fileID: 0}
-  whatStopsMovement:
+  collisionLayer:
     serializedVersion: 2
     m_Bits: 256
   anim: {fileID: 7771632571173825239}
   spew: {fileID: 7771632571064487924}
   gameController: {fileID: 0}
-  attackWait: 0.2
+  alarmAttack: 0.5
+  alarmMove: 0.5
 --- !u!114 &7771632571064487924
 MonoBehaviour:
   m_ObjectHideFlags: 0
