@@ -7,6 +7,9 @@ public class NOTES : MonoBehaviour
 
   // NEXT NEXT NEXT NEXT
   // smoother player movement
+    // switching directions is instant
+    // tapping is instant
+    // holding is on timer
   // level up progress
   // more treasure
   // spew physics!

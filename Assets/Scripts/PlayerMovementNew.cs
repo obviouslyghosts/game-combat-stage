@@ -32,29 +32,26 @@ public class PlayerMovementNew : MonoBehaviour
   {
     if ( isActive )
     {
-      triggerAttack = UpdateTimerAttack( );
-      triggerMove = UpdateTimerMove( );
-
-      if ( !atDestination ) // move towards Point
-      {
-        atDestination = MoveTowardsPoint();
-      }
-      else
+      UpdateTimers();
+      if ( atDestination ) // move towards Point
       {
         if ( triggerAttack && Mathf.Abs( Input.GetAxisRaw( "Jump" ) ) > 0f )
         {
-          Debug.Log( "Triggered Attack" );
           Attack( );
         }
         if ( triggerMove && Input.anyKey )
         {
           Move( Input.GetAxisRaw( "Horizontal" ), Input.GetAxisRaw( "Vertical" ) );
           atDestination = AtDestinationCheck();
-        }        
+        }
         if ( atDestination )
         {
-          UpdateAnim( 0f, 0f);
+          UpdateAnim( 0f, 0f );
         }
+      }
+      else
+      {
+        atDestination = MoveTowardsPoint();
       }
     }
   }
@@ -79,13 +76,11 @@ public class PlayerMovementNew : MonoBehaviour
 
   private bool AtDestinationCheck()
   {
-      // Debug.Log("Checking destination" + (Vector3.Distance( transform.position, movePoint.position ) <= 0.05f) );
     return ( Vector3.Distance( transform.position, movePoint.position ) <= 0.05f );
   }
 
   private void Move( float x, float y)
   {
-    // threshold clamp
     if ( ( Mathf.Abs( x ) > 0 ) | ( Mathf.Abs( y ) > 0 ) )
     {
       x = SimpleCollisionCheck( x, 0f ) ? 0f : x;
@@ -111,44 +106,25 @@ public class PlayerMovementNew : MonoBehaviour
     triggerAttack = false;
   }
 
-  private bool UpdateTimerAttack( )
+  private void UpdateTimers( )
   {
     if ( !triggerAttack )
     {
       timerAttack += Time.deltaTime;
       triggerAttack = ( timerAttack >= alarmAttack );
     }
-    return ( triggerAttack );
-  }
 
-  private bool UpdateTimerMove( )
-  {
     if ( !triggerMove )
     {
       timerMove += Time.deltaTime;
       triggerMove = ( timerMove >= alarmMove );
     }
-    return ( triggerMove );
   }
 
   private void UpdateAnim( float x, float y )
   {
-    if ( Mathf.Abs( x ) > 0 )
-    {
-      anim.SetBool("moveHoriz", true);
-      anim.SetBool("moveVert", false);
-    }
-    else if ( Mathf.Abs( y ) > 0 )
-    {
-      anim.SetBool("moveVert", true);
-      anim.SetBool("moveHoriz", false);
-    }
-    else
-    {
-      anim.SetBool("moveHoriz", false);
-      anim.SetBool("moveVert", false);
-    }
-
+    anim.SetBool("moveHoriz", ( Mathf.Abs(x) > 0 ) );
+    anim.SetBool("moveVert", ( Mathf.Abs(y) > 0 ) );
   }
 
   private void UpdateAudio( float x, float y )
