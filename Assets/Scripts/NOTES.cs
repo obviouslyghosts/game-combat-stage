@@ -6,10 +6,10 @@ public class NOTES : MonoBehaviour
 {
 
   // NEXT NEXT NEXT NEXT
-  // smoother player movement
-    // switching directions is instant
-    // tapping is instant
-    // holding is on timer
+  // art sprites
+    // knight
+    // treasure
+  // aim spew
   // level up progress
   // more treasure
   // spew physics!

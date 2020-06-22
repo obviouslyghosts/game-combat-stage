@@ -59,7 +59,7 @@ MonoBehaviour:
   spew: {fileID: 7771632571064487924}
   gameController: {fileID: 0}
   alarmAttack: 0.5
-  alarmMove: 0.5
+  alarmMove: 0.15
 --- !u!114 &7771632571064487924
 MonoBehaviour:
   m_ObjectHideFlags: 0
