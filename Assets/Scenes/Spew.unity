@@ -5332,7 +5332,7 @@ PrefabInstance:
     - target: {fileID: 8257407530757863420, guid: d6972f089cca0994498a89a5a08716a1,
         type: 3}
       propertyPath: alarmMove
-      value: 0.25
+      value: 0.15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d6972f089cca0994498a89a5a08716a1, type: 3}

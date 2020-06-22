@@ -19,6 +19,13 @@ public class PlayerMovementNew : MonoBehaviour
   private float timerMove = 0f;
   private bool triggerMove = false;
   private bool atDestination = true;
+  private Vector2 inputOne = new Vector2( 0f, 0f );
+  private Vector2 inputTwo = new Vector2( 0f, 0f );
+  private Vector2 inputThree = new Vector2( 0f, 0f );
+
+  // NOTES
+  // Last input overrides new input
+
 
   void Start()
   {
@@ -39,9 +46,16 @@ public class PlayerMovementNew : MonoBehaviour
         {
           Attack( );
         }
-        if ( triggerMove && Input.anyKey )
+        if ( triggerMove && Input.anyKey ) // triggerMove &&
         {
-          Move( Input.GetAxisRaw( "Horizontal" ), Input.GetAxisRaw( "Vertical" ) );
+          inputThree = new Vector2 ( Input.GetAxisRaw( "Horizontal" ), Input.GetAxisRaw( "Vertical" ) );
+          if ( inputThree != inputTwo )
+          {
+            inputOne = inputTwo;
+            inputTwo = inputThree;
+          }
+
+          Move( inputOne, inputTwo );
           atDestination = AtDestinationCheck();
         }
         if ( atDestination )
@@ -79,11 +93,27 @@ public class PlayerMovementNew : MonoBehaviour
     return ( Vector3.Distance( transform.position, movePoint.position ) <= 0.05f );
   }
 
-  private void Move( float x, float y)
+  private void Move( Vector2 a, Vector2 b )
   {
-    if ( ( Mathf.Abs( x ) > 0 ) | ( Mathf.Abs( y ) > 0 ) )
+    if ( ( Mathf.Abs( b.x ) > 0 ) | ( Mathf.Abs( b.y ) > 0 ) )
     {
+      float x = b.x;
+      float y = b.y;
+
+      if ( Mathf.Abs( x * y ) > 0)
+      {
+        Debug.Log("Checking new input");
+        // compare for last input with Vector a
+        float _x = Mathf.Abs( x ) - Mathf.Abs( a.x );
+        float _y = Mathf.Abs( y ) - Mathf.Abs( a.y );
+        Debug.Log( _x + " " + _y);
+
+        x = x * _x;
+        y = y * _y;
+      }
+
       x = SimpleCollisionCheck( x, 0f ) ? 0f : x;
+      // y = ( x == 0f ) ? y : 0; // zero out vert movement if x has input
       y = SimpleCollisionCheck( 0f, y ) ? 0f : y;
 
       Vector3 newPos = new Vector3( x , y, 0f );
@@ -94,6 +124,12 @@ public class PlayerMovementNew : MonoBehaviour
       timerMove = 0f;
       triggerMove = false;
     }
+    //
+    //
+    // if ( ( Mathf.Abs( x ) > 0 ) | ( Mathf.Abs( y ) > 0 ) )
+    // {
+    //
+    // }
   }
 
   private void Attack( )
