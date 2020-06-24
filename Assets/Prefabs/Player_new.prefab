@@ -58,8 +58,9 @@ MonoBehaviour:
   anim: {fileID: 7771632571173825239}
   spew: {fileID: 7771632571064487924}
   gameController: {fileID: 0}
-  alarmAttack: 0.5
-  alarmMove: 0.15
+  alarmAttack: 0.75
+  alarmMove: 0.25
+  threshold: 0.15
 --- !u!114 &7771632571064487924
 MonoBehaviour:
   m_ObjectHideFlags: 0

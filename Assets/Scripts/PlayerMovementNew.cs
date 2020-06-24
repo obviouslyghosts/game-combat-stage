@@ -19,10 +19,10 @@ public class PlayerMovementNew : MonoBehaviour
   private float timerMove = 0f;
   private bool triggerMove = false;
   private bool atDestination = true;
-  private Vector2 inputOne = new Vector2( 0f, 0f );
-  private Vector2 inputTwo = new Vector2( 0f, 0f );
-  private Vector2 inputThree = new Vector2( 0f, 0f );
-
+  // private Vector2 inputOne = new Vector2( 0f, 0f );
+  // private Vector2 inputTwo = new Vector2( 0f, 0f );
+  // private Vector2 inputThree = new Vector2( 0f, 0f );
+  public float threshold = 0.05f;
   // NOTES
   // Last input overrides new input
 
@@ -46,16 +46,16 @@ public class PlayerMovementNew : MonoBehaviour
         {
           Attack( );
         }
-        if ( triggerMove && Input.anyKey ) // triggerMove &&
+        if ( triggerMove &
+          ( Mathf.Abs( Input.GetAxis("Horizontal") ) >= threshold
+          | Mathf.Abs( Input.GetAxis( "Vertical" ) ) >= threshold
+          | Mathf.Abs( Input.GetAxis( "DPad X" ) ) >= threshold
+          | Mathf.Abs( Input.GetAxis( "DPad Y" ) ) >= threshold
+          ) ) // triggerMove &&
         {
-          inputThree = new Vector2 ( Input.GetAxisRaw( "Horizontal" ), Input.GetAxisRaw( "Vertical" ) );
-          if ( inputThree != inputTwo )
-          {
-            inputOne = inputTwo;
-            inputTwo = inputThree;
-          }
 
-          Move( inputOne, inputTwo );
+          // Move( Input.GetAxis( "Horizontal" ) , Input.GetAxis( "Vertical" ) );
+          Move( Input.GetAxis( "Horizontal" ) + Input.GetAxis( "DPad X" ), Input.GetAxis( "Vertical" ) + Input.GetAxis( "DPad Y" ) );
           atDestination = AtDestinationCheck();
         }
         if ( atDestination )
@@ -93,43 +93,37 @@ public class PlayerMovementNew : MonoBehaviour
     return ( Vector3.Distance( transform.position, movePoint.position ) <= 0.05f );
   }
 
-  private void Move( Vector2 a, Vector2 b )
+  private void Move( float x, float y )
   {
-    if ( ( Mathf.Abs( b.x ) > 0 ) | ( Mathf.Abs( b.y ) > 0 ) )
+    float _x = Mathf.Abs( x );
+    float _y = Mathf.Abs( y );
+
+
+    if ( ( _x > 0 ) | ( _y > 0 ) )
     {
-      float x = b.x;
-      float y = b.y;
 
-      if ( Mathf.Abs( x * y ) > 0)
+      if ( _x * _y > 0)
       {
-        Debug.Log("Checking new input");
-        // compare for last input with Vector a
-        float _x = Mathf.Abs( x ) - Mathf.Abs( a.x );
-        float _y = Mathf.Abs( y ) - Mathf.Abs( a.y );
-        Debug.Log( _x + " " + _y);
-
-        x = x * _x;
-        y = y * _y;
+        // Zero out axis
+        x = ( _x >= _y ) ?  x : 0f;
+        y = ( _y > _x ) ? y : 0f;
       }
 
+      Debug.Log( _x + " " + _y);
+      x = ClampInput( x );
+      y = ClampInput( y );
+
+      Debug.Log( x + " " + y);
+
       x = SimpleCollisionCheck( x, 0f ) ? 0f : x;
-      // y = ( x == 0f ) ? y : 0; // zero out vert movement if x has input
       y = SimpleCollisionCheck( 0f, y ) ? 0f : y;
 
-      Vector3 newPos = new Vector3( x , y, 0f );
-
-      movePoint.position += newPos;
+      movePoint.position += new Vector3( x , y, 0f );
       UpdateAnim( x, y);
       UpdateAudio( x, y);
       timerMove = 0f;
       triggerMove = false;
     }
-    //
-    //
-    // if ( ( Mathf.Abs( x ) > 0 ) | ( Mathf.Abs( y ) > 0 ) )
-    // {
-    //
-    // }
   }
 
   private void Attack( )
@@ -169,6 +163,11 @@ public class PlayerMovementNew : MonoBehaviour
     {
       audioManager.Play("PlayerMove");
     }
+  }
+
+  private float ClampInput( float i )
+  {
+    return ( Mathf.Abs( i ) >= threshold ? 1 * Mathf.Sign( i ) : 0f );
   }
 
   private bool SimpleCollisionCheck( float x, float y )
