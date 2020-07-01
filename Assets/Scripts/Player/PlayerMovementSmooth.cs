@@ -40,7 +40,9 @@ public class PlayerMovementSmooth : MonoBehaviour
       UpdateTimers();
       if ( atDestination ) // move towards Point
       {
-        if ( triggerAttack && Mathf.Abs( Input.GetAxisRaw( "Jump" ) ) > 0f )
+        if ( triggerAttack &&
+        ( Mathf.Abs( Input.GetAxisRaw( "Jump" ) ) > 0f
+        | Input.GetMouseButton( 0 ) ) )
         {
           Attack( );
           timerMove = 0;
@@ -104,10 +106,13 @@ public class PlayerMovementSmooth : MonoBehaviour
     Debug.Log("Triggered");
     if (other.gameObject.tag =="Loot")
     {
-      Debug.Log("pickup loot!!!");
       Loot theLoot = other.GetComponent(typeof(Loot)) as Loot;
-      gameController.ApplyPickup(theLoot.value);
-      theLoot.PickedUp();
+      if ( theLoot.IsResting() )
+      {
+        gameController.ApplyPickup(theLoot.value);
+        theLoot.PickedUp();
+      }
+      // Debug.Log("pickup loot!!!");
     }
   }
 

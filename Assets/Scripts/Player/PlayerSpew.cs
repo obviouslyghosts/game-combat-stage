@@ -56,7 +56,8 @@ public class PlayerSpew : MonoBehaviour
     if ( IsInBounds( pos ) )
     {
       GameObject item = items[ UnityEngine.Random.Range(0, items.Length) ];
-      Instantiate(item, transform.position + pos, Quaternion.identity);
+      GameObject item_obj = Instantiate(item, transform.position, Quaternion.identity); //Instantiate(item, transform.position + pos, Quaternion.identity);
+      item_obj.GetComponent<Loot>().SetDirection( pos );
       Instantiate(burstEffect, transform.position + pos, Quaternion.identity);
       gameController.ApplySpew(1);
       // playerStatus.Spew(1);

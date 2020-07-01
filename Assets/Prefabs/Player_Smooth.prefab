@@ -91,7 +91,7 @@ MonoBehaviour:
   anim: {fileID: 7771632571173825239}
   spew: {fileID: 7771632571064487924}
   gameController: {fileID: 0}
-  alarmAttack: 0.75
+  alarmAttack: 0.6
   alarmMove: 0.18
   threshold: 0.15
 --- !u!114 &7771632571064487924
@@ -108,8 +108,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
   items:
-  - {fileID: 7700868012930100571, guid: 5551b685c59a82941b240d8d13d80818, type: 3}
-  - {fileID: 7700868012930100571, guid: 5551b685c59a82941b240d8d13d80818, type: 3}
   - {fileID: 7700868012930100571, guid: 5551b685c59a82941b240d8d13d80818, type: 3}
   level: 0
   bounds:
