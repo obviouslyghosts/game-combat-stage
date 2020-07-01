@@ -14,6 +14,15 @@ TextureImporter:
   - first:
       213: 3608116584633959339
     second: horiz_3
+  - first:
+      213: 2188560950436408404
+    second: horiz_4
+  - first:
+      213: 2619358975716292346
+    second: horiz_5
+  - first:
+      213: -2867530378786494168
+    second: horiz_6
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -189,6 +198,69 @@ TextureImporter:
       bones: []
       spriteID: ba38d47caea921230800000000000000
       internalID: 3608116584633959339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: horiz_4
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45cad04c6945f5e10800000000000000
+      internalID: 2188560950436408404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: horiz_5
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 0
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af6fcc64c15d95420800000000000000
+      internalID: 2619358975716292346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: horiz_6
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8292ac5305c7438d0800000000000000
+      internalID: -2867530378786494168
       vertices: []
       indices: 
       edges: []

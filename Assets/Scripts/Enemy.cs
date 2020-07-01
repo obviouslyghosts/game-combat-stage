@@ -176,16 +176,16 @@ public class Enemy : MonoBehaviour
       // move 1 unit horizontaly closer
       _x = transform.position.x > target.x ? -1 : 1;
       transform.localScale = new Vector3( (float)_x,1f,1f);
-      anim.SetBool("moveHoriz", true);
-      anim.SetBool("moveVert", false);
+      anim.SetBool("move-Horiz", true);
+      anim.SetBool("move-Vert", false);
       audioManager.Play("KnightMove");
     }
     if (Mathf.Abs(transform.position.y - target.y) >= 0.5f)
     {
       // move 1 unit vertically closer
       _y = transform.position.y > target.y ? -1 : 1;
-      anim.SetBool("moveVert", true);
-      anim.SetBool("moveHoriz", false);
+      anim.SetBool("move-Vert", true);
+      anim.SetBool("move-Horiz", false);
       audioManager.Play("KnightMove");
     }
 
@@ -201,8 +201,8 @@ public class Enemy : MonoBehaviour
     }
     else
     {
-      anim.SetBool("moveHoriz", false);
-      anim.SetBool("moveVert", false);
+      anim.SetBool("move-Horiz", false);
+      anim.SetBool("move-Vert", false);
       Debug.Log("Arrived at point");
     }
 
