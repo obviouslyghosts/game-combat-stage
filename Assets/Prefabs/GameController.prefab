@@ -43,3 +43,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56077c093f3af7f488671b743b79abd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyList: []
+  health: 0
+  wealth: 0
+  cursorTexture: {fileID: 2800000, guid: e29edd8935b231445ad88c875ed79cef, type: 3}
+  cursorMode: 0
+  hotSpot: {x: 0, y: 0}

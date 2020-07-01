@@ -13,6 +13,10 @@ public class GameController : MonoBehaviour
   public int health;
   public int wealth;
 
+  public Texture2D cursorTexture;
+  public CursorMode cursorMode = CursorMode.Auto;
+  public Vector2 hotSpot; // = Vector2.zero;
+
 
   private void Awake()
   {
@@ -24,6 +28,8 @@ public class GameController : MonoBehaviour
     }
     instance = this;
     DontDestroyOnLoad( gameObject );
+    hotSpot = new Vector2 ( cursorTexture.width/2, cursorTexture.height/2 );
+    Cursor.SetCursor(cursorTexture, hotSpot, cursorMode);
   }
 
   public void ApplyDamange( int dmg )
