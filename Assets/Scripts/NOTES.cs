@@ -6,13 +6,8 @@ public class NOTES : MonoBehaviour
 {
 
   // NEXT NEXT NEXT NEXT
-  // art sprites
-    // knight
-    // treasure
-  // aim spew
   // level up progress
   // more treasure
-  // spew physics!
   // More enemies
   // title menu art
   // UI SFX
