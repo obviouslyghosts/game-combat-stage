@@ -108,7 +108,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
   items:
-  - {fileID: 7700868012930100571, guid: 5551b685c59a82941b240d8d13d80818, type: 3}
+  - {fileID: 7700868012930100571, guid: 894de9575204ab94293f67d29b341136, type: 3}
   level: 0
   bounds:
     serializedVersion: 2
@@ -117,6 +117,7 @@ MonoBehaviour:
   burstEffect: {fileID: 5515515755045613872, guid: 14b652c3ee736cb4f84044adc36dd060,
     type: 3}
   aim: {fileID: 2053047812666244082}
+  force: 0
 --- !u!61 &7771632571064487914
 BoxCollider2D:
   m_ObjectHideFlags: 0

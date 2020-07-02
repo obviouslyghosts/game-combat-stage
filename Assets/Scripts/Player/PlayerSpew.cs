@@ -12,6 +12,7 @@ public class PlayerSpew : MonoBehaviour
   public GameObject burstEffect;
   public GameObject aim;
   private float aimDirection;
+  public float force;
   // public PlayerStatus playerStatus;
 
   private void Start()
@@ -56,9 +57,11 @@ public class PlayerSpew : MonoBehaviour
     if ( IsInBounds( pos ) )
     {
       GameObject item = items[ UnityEngine.Random.Range(0, items.Length) ];
-      GameObject item_obj = Instantiate(item, transform.position, Quaternion.identity); //Instantiate(item, transform.position + pos, Quaternion.identity);
-      item_obj.GetComponent<Loot>().SetDirection( pos );
-      Instantiate(burstEffect, transform.position + pos, Quaternion.identity);
+      GameObject item_obj = Instantiate(item, transform.position + ( pos / 2 ), Quaternion.identity); //Instantiate(item, transform.position + pos, Quaternion.identity);
+      // item_obj.GetComponent<Loot>().SetDirection( pos / 2 );
+      item_obj.GetComponent<Loot_phys>().Blast( pos, force );
+
+      Instantiate( burstEffect, transform.position + pos, Quaternion.identity );
       gameController.ApplySpew(1);
       // playerStatus.Spew(1);
     }

@@ -106,9 +106,10 @@ public class PlayerMovementSmooth : MonoBehaviour
     Debug.Log("Triggered");
     if (other.gameObject.tag =="Loot")
     {
-      Loot theLoot = other.GetComponent(typeof(Loot)) as Loot;
+      Loot_phys theLoot = other.GetComponent( typeof( Loot_phys ) ) as Loot_phys;
       if ( theLoot.IsResting() )
       {
+        // Blast( Vector3.right, 10 )
         gameController.ApplyPickup(theLoot.value);
         theLoot.PickedUp();
       }
