@@ -54,7 +54,7 @@ public class Enemy : MonoBehaviour
     if (other.gameObject.tag =="Loot")
     {
       Debug.Log("pickup loot!!!");
-      Loot theLoot = other.GetComponent(typeof(Loot)) as Loot;
+      Loot_phys theLoot = other.GetComponent( typeof( Loot_phys ) ) as Loot_phys;
       backpack+= theLoot.value;
       theLoot.PickedUp();
     }

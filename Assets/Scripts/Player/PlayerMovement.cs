@@ -4,121 +4,116 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-  public bool isActive = true;
-  public float moveSpeed = 4f;
-  public Transform movePoint;
+
+  public GameController gameController;
   public AudioManager audioManager;
-  public LayerMask whatStopsMovement;
+  public LayerMask collisionLayer;
   public Animator anim;
   public PlayerSpew spew;
-  public GameController gameController;
-  // public PlayerStatus status;
-  public float attackWait = 0.2f;
-  private float attackTimer; //= attackWait;
-  // private bool hasInput = false;
-  private bool canMove = true;
-  // Start is called before the first frame update
-  void Start()
+
+  public float force;
+  public float moveSpeed = 0.5f;
+  public float alarmAttack = 0.2f;
+  private float timerAttack;
+  private bool triggerAttack = false;
+  public float threshold = 0.15f;
+  // private Rigidbody2D rigid;
+  // Get input
+  // move based on that input, NO GRID
+
+  private void Start()
   {
-    movePoint.parent = null;
-    attackTimer = attackWait;
     audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
     gameController = GameObject.Find("GameController").GetComponent<GameController>();
-    // status = gameObject.GetComponent<PlayerStatus>();
+    // rigid = gameObject.GetComponent<Rigidbody2D>();
   }
 
-  // Update is called once per frame
-  void Update()
+
+  private void Update()
   {
-    if (isActive)
+    Debug.Log( "Horiz: " +  Input.GetAxis( "Horizontal" ) );
+    UpdateTimers();
+    if ( triggerAttack &&
+    ( Mathf.Abs( Input.GetAxisRaw( "Jump" ) ) > 0f
+    | Input.GetMouseButton( 0 ) ) )
     {
-      transform.position = Vector3.MoveTowards(transform.position, movePoint.position, moveSpeed * Time.deltaTime);
-
-
-      if (Vector3.Distance(transform.position,movePoint.position) <= 0.05f)
-      {
-        if (attackTimer >= attackWait)
-        {
-          if (Mathf.Abs(Input.GetAxisRaw("Jump")) == 1f)
-          {
-            anim.SetTrigger("attack");
-            audioManager.Play("PlayerSpew");
-            attackTimer = 0f;
-            spew.Everywhere();
-          }
-        }
-        else
-        {
-          attackTimer += Time.deltaTime;
-        }
-
-        if (canMove && Mathf.Abs(Input.GetAxisRaw("Horizontal")) == 1f )
-        {
-          if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(Input.GetAxisRaw("Horizontal")/2, 0f, 0f), 0.2f, whatStopsMovement))
-          {
-            movePoint.position += new Vector3(Input.GetAxisRaw("Horizontal"), 0f, 0f);
-            anim.SetBool("moveHoriz", true);
-            anim.SetBool("moveVert", false);
-            audioManager.Play("PlayerMove");
-            canMove = false;
-          }
-          else
-          {
-            anim.SetBool("moveHoriz", false);
-          }
-        }
-        else if (canMove && Mathf.Abs(Input.GetAxisRaw("Vertical")) == 1f )
-        {
-          if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, Input.GetAxisRaw("Vertical")/2, 0f), 0.4f, whatStopsMovement))
-          {
-            movePoint.position += new Vector3(0f, Input.GetAxisRaw("Vertical"), 0f);
-            anim.SetBool("moveVert", true);
-            anim.SetBool("moveHoriz", false);
-            audioManager.Play("PlayerMove");
-            canMove = false;
-          }
-          else
-          {
-            anim.SetBool("moveVert", false);
-          }
-        }
-        else
-        {
-          if (Mathf.Abs(Input.GetAxisRaw("Horizontal")) != 1 & Mathf.Abs(Input.GetAxisRaw("Vertical")) !=1)
-          {
-            canMove = true;
-          }
-
-          anim.SetBool("moveHoriz", false);
-          anim.SetBool("moveVert", false);
-        }
-
-        } else
-        {
-
-          // anim.SetBool("moving", true);
-        }
-
+      Attack( );
     }
-
-  }
-
-  private void OnTriggerEnter2D(Collider2D other)
-  {
-    Debug.Log("Triggered");
-    if (other.gameObject.tag =="Loot")
+    if ( ( Mathf.Abs( Input.GetAxis("Horizontal") ) >= threshold
+      | Mathf.Abs( Input.GetAxis( "Vertical" ) ) >= threshold
+      | Mathf.Abs( Input.GetAxis( "DPad X" ) ) >= threshold
+      | Mathf.Abs( Input.GetAxis( "DPad Y" ) ) >= threshold
+      ) ) // triggerMove &&
     {
-      Debug.Log("pickup loot!!!");
-      Loot theLoot = other.GetComponent(typeof(Loot)) as Loot;
-      gameController.ApplyPickup(theLoot.value);
-      // status.Pickup(theLoot.value);
-      theLoot.PickedUp();
+      // Move( Input.GetAxis( "Horizontal" ) , Input.GetAxis( "Vertical" ) );
+      Move( Input.GetAxis( "Horizontal" ) + Input.GetAxis( "DPad X" ), Input.GetAxis( "Vertical" ) + Input.GetAxis( "DPad Y" ) );
+    }
+    else
+    {
+      UpdateAnim( 0, 0);
     }
   }
 
-  public void SetScriptActive(bool v)
+  private void Attack( )
   {
-    isActive = v;
+    Debug.Log( "Triggered Attack" );
+    anim.SetTrigger("attack");
+    audioManager.Play("PlayerSpew");
+    spew.Everywhere();
+    timerAttack = 0f;
+    triggerAttack = false;
   }
+
+  private void Move( float x, float y )
+  {
+    // x = ClampInput( x ) * moveSpeed;
+    // y = ClampInput( y ) * moveSpeed;
+    //
+    x *= moveSpeed;
+    y *= moveSpeed;
+
+    x = SimpleCollisionCheck( x, 0f ) ? 0f : x;
+    y = SimpleCollisionCheck( 0f, y ) ? 0f : y;
+
+    Debug.Log( x );
+    // rigid.AddForce( new Vector3( x , y, 0f ), ForceMode2D.Force );
+    transform.position += new Vector3( x , y, 0f );
+    UpdateAnim( x, y);
+    UpdateAudio( x, y);
+  }
+
+  private void UpdateTimers( )
+  {
+    if ( !triggerAttack )
+    {
+      timerAttack += Time.deltaTime;
+      triggerAttack = ( timerAttack >= alarmAttack );
+    }
+  }
+
+  private void UpdateAnim( float x, float y )
+  {
+    anim.SetBool("moveHoriz", ( Mathf.Abs(x) > 0 ) );
+    anim.SetBool("moveVert", ( Mathf.Abs(y) > 0 ) );
+  }
+
+  private void UpdateAudio( float x, float y )
+  {
+    if ( Mathf.Abs( x ) > 0 | Mathf.Abs( y ) > 0 )
+    {
+      audioManager.Play("PlayerMove");
+    }
+  }
+
+  private float ClampInput( float i )
+  {
+    return ( Mathf.Abs( i ) >= threshold ? 1 * Mathf.Sign( i ) : 0f );
+  }
+
+  private bool SimpleCollisionCheck( float x, float y )
+  {
+    return ( Physics2D.OverlapCircle( transform.position + new Vector3( x, y, 0f ), 0.4f, collisionLayer ) );
+  }
+
 
 }
